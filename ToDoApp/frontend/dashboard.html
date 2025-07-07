@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dashboard | ToDo App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gradient-to-tr from-blue-100 to-purple-200 min-h-screen">
+
+<!-- Header -->
+<header class="flex justify-between items-center p-6 bg-white shadow">
+    <h1 class="text-2xl font-bold text-blue-600">Yash's ToDo Dashboard</h1>
+    <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded transition">
+        Logout
+    </button>
+</header>
+
+<!-- Main Content -->
+<main class="max-w-3xl mx-auto mt-8 p-4">
+    <div class="bg-white p-6 rounded-lg shadow mb-6">
+        <h2 class="text-xl font-semibold mb-4 text-gray-700">Create a new task</h2>
+        <form id="taskForm" class="flex flex-col md:flex-row gap-4">
+            <input type="text" id="taskInput" placeholder="Your task..." class="flex-1 px-4 py-2 border rounded" required />
+
+            <select id="prioritySelect" class="px-4 py-2 border rounded">
+                <option value="High">🔥 High</option>
+                <option value="Medium" selected>⚖️ Medium</option>
+                <option value="Low">💤 Low</option>
+            </select>
+
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded">
+                Add Task
+            </button>
+        </form>
+    </div>
+
+    <!-- Task List -->
+    <div id="taskList" class="space-y-4">
+        <!-- Tasks rendered here -->
+    </div>
+
+    <!-- Spinner -->
+    <div id="spinner" class="text-center mt-6 hidden">
+        <svg class="animate-spin h-8 w-8 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+        </svg>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded bg-green-500 text-white shadow-lg hidden">
+        Message here
+    </div>
+</main>
+
+<!-- Script -->
+<script src="dashboard.js"></script>
+</body>
+</html>
